@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e3dc930ad558259438d09e4260adbcf8
+  m_SerializeEntries:
+  - m_GUID: 1d18c6b9c3c703744bbec01899cf8754
+    m_Address: UI/Inv-Cell
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 082f404d90c1dbb4c9229d06e5d055fa
+    m_Address: Enemy/Bear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6b130e808020505449af20feb360142d
+    m_Address: UI/NotificationCell
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6328ad106fcde541844d81ce7a6cf91
+    m_Address: UI/Weapon-Inv-Cell
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a722ec1b219b3fd4dbd098a00f186bff
+    m_Address: Assets/Prefabs/Loot/Weapons/Loot-TwinBlade-Bronya-HoT.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 94f3baf0dba9f284d882c1b984e1d785
+    m_Address: Enemy/Archer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b0e44d7a04df6fd409f2d80d077967b2
+    m_Address: UI/DamagePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 10d3c68dfa160664cbf6154d5b2e5528, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3870c6ab679bf474386d609619b3ee6d, type: 2}
+    - {fileID: 11400000, guid: 35583568a2207874b9a701d1bb106dd5, type: 2}

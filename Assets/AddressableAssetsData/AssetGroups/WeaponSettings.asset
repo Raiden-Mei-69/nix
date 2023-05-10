@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WeaponSettings
+  m_EditorClassIdentifier: 
+  m_GroupName: WeaponSettings
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6dd15ef6238da1e4db33980143d55bf8
+  m_SerializeEntries:
+  - m_GUID: 9641db3b08023904ca616545c638f2ab
+    m_Address: WeaponSettings/Greatsword
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 64c36fa988ae28549a3681c6e22a0cc7
+    m_Address: WeaponSettings/Iron_Sword
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f20fdb476ee8cc04bb5dddaab719e2d8
+    m_Address: WeaponSettings/TwinBlade-HoT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 10d3c68dfa160664cbf6154d5b2e5528, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 873c66e2da37eac4b84b40c5d48a5bad, type: 2}
+    - {fileID: 11400000, guid: 93607223da0097041b72ed9f66fa3a7e, type: 2}

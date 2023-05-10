@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &629032373805057013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 629032373805057012}
+  - component: {fileID: 629032373805057015}
+  m_Layer: 0
+  m_Name: Discord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &629032373805057012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629032373805057013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 155.57826, y: 0.78159523, z: 43.36123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &629032373805057015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629032373805057013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47c889465ef8a54590721930dfbfeb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  discordData:
+    client_id: 1030904836176228522
+    client_id_second: 965710459179266078
+    application_id: 1030904836176228522
+    public_key: ef7ee84ac72abec794476d8c9eb37bbf8917fb144d5e5a6b40494368da8e0826
+    client_secret: FICuwuYs71uVIzsm8UfXaBczGhyowygf
+    redirect: https://127.0.0.1
+    oauth: https://discord.com/api/oauth2/authorize?client_id=1030904836176228522&redirect_uri=https%3A%2F%2F127.0.0.1&response_type=code&scope=identify%20connections%20rpc%20rpc.notifications.read%20rpc.voice.read%20rpc.voice.write%20rpc.activities.write%20activities.read%20activities.write
+  playerDataDiscord:
+    characterName: 
+    regionName: 
+    level: 0
+  socket:
+    connectionUri: http://localhost:8888/aponia/connection
+    discord: {fileID: 629032373805057015}

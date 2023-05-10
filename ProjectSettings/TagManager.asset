@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Ether
+  - CinemachineTarget
+  - Weapon
+  - Tree
+  - Loot
+  - Chest
+  - Animal
+  - Fish
+  - Destructable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Enemy
+  - Projectile
+  - Collector
+  - Loot
+  - Player
+  - Weapon
+  - TargetDetector
+  - EnemyDetector
+  - Ignore
+  - DeepWater
+  - Destructable
+  - Skill
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Damage
+    uniqueID: 2480490951
+    locked: 0

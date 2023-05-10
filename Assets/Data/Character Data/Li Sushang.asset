@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d22b832e68110e4596f8c57f987326f, type: 3}
+  m_Name: Li Sushang
+  m_EditorClassIdentifier: 
+  levelStats:
+  - Level: 1
+    MaxHealth: 1111
+    BaseAttack: 20
+    BaseDef: 60
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 2
+    MaxHealth: 1192
+    BaseAttack: 22
+    BaseDef: 64
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 3
+    MaxHealth: 1273
+    BaseAttack: 24
+    BaseDef: 68
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 4
+    MaxHealth: 1353
+    BaseAttack: 26
+    BaseDef: 72
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 5
+    MaxHealth: 1434
+    BaseAttack: 28
+    BaseDef: 76
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 6
+    MaxHealth: 1515
+    BaseAttack: 30
+    BaseDef: 80
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 7
+    MaxHealth: 1596
+    BaseAttack: 32
+    BaseDef: 84
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 8
+    MaxHealth: 1677
+    BaseAttack: 34
+    BaseDef: 88
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 9
+    MaxHealth: 1758
+    BaseAttack: 36
+    BaseDef: 92
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 10
+    MaxHealth: 1839
+    BaseAttack: 38
+    BaseDef: 96
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 11
+    MaxHealth: 1919
+    BaseAttack: 40
+    BaseDef: 100
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 12
+    MaxHealth: 2000
+    BaseAttack: 42
+    BaseDef: 104
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 13
+    MaxHealth: 2081
+    BaseAttack: 44
+    BaseDef: 106
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 14
+    MaxHealth: 2162
+    BaseAttack: 46
+    BaseDef: 108
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 15
+    MaxHealth: 2243
+    BaseAttack: 48
+    BaseDef: 112
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 16
+    MaxHealth: 2324
+    BaseAttack: 50
+    BaseDef: 114
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 17
+    MaxHealth: 2405
+    BaseAttack: 52
+    BaseDef: 116
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 18
+    MaxHealth: 2485
+    BaseAttack: 54
+    BaseDef: 118
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 19
+    MaxHealth: 2566
+    BaseAttack: 56
+    BaseDef: 120
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  - Level: 20
+    MaxHealth: 2647
+    BaseAttack: 60
+    BaseDef: 153
+    BaseCritRate: 5
+    BaseCritDamage: 50
+    needAscension: 0
+  file: {fileID: 4900000, guid: 51d0ac477074dff4e9a9bf3c29f04f4a, type: 3}

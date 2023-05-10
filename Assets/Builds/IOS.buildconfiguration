@@ -1,0 +1,31 @@
+{
+    "Show": true,
+    "Dependencies": [
+        "GlobalObjectId_V1-0-00000000000000000000000000000000-0-0"
+    ],
+    "Components": [
+        {
+            "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
+            "$version": 1,
+            "Platform": "iOS",
+            "Configuration": 2
+        },
+        {
+            "$type": "Unity.Build.Common.GeneralSettings, Unity.Build",
+            "ProductName": "アルレッキーノ",
+            "CompanyName": "DefaultCompany",
+            "Version": "0.1"
+        },
+        {
+            "$type": "Unity.Build.Common.SceneList, Unity.Build",
+            "$version": 1,
+            "BuildCurrentScene": true,
+            "SceneInfos": [
+                {
+                    "Scene": "GlobalObjectId_V1-1-3825865a860763e4d9191df528968de2-102900000-0",
+                    "AutoLoad": true
+                }
+            ]
+        }
+    ]
+}

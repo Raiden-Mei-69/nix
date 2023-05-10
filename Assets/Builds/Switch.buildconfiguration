@@ -1,0 +1,33 @@
+{
+    "Show": true,
+    "Dependencies": [],
+    "Components": [
+        {
+            "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
+            "$version": 1,
+            "Platform": "Switch",
+            "Configuration": 2
+        },
+        {
+            "$type": "Unity.Build.Common.GeneralSettings, Unity.Build",
+            "ProductName": "アルレッキーノ",
+            "CompanyName": "DefaultCompany",
+            "Version": "0.1"
+        },
+        {
+            "$type": "Unity.Build.Common.SceneList, Unity.Build",
+            "$version": 1,
+            "BuildCurrentScene": true,
+            "SceneInfos": [
+                {
+                    "Scene": "GlobalObjectId_V1-1-3825865a860763e4d9191df528968de2-102900000-0",
+                    "AutoLoad": true
+                }
+            ]
+        },
+        {
+            "$type": "Unity.Build.Common.OutputBuildDirectory, Unity.Build",
+            "OutputDirectory": "D:\\Games\\アルレッキーノ\\Builds"
+        }
+    ]
+}

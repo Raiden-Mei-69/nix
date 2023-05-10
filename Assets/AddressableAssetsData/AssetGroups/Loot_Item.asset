@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Loot_Item
+  m_EditorClassIdentifier: 
+  m_GroupName: Loot_Item
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 564baca955cfb754ebbbcb173a74f1e7
+  m_SerializeEntries:
+  - m_GUID: 5837acf4992fcc740baa2b0f96f7f598
+    m_Address: Loot/Item/Cube
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Loot_Item
+    - Loot
+  - m_GUID: de5cf89be91cc6d448767dc7b7432b28
+    m_Address: Loot/Item/MeatSO
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Loot
+    - Loot_Item
+  - m_GUID: eebc7434fa1dad24486fb3e1efaf6c5d
+    m_Address: Loot/Item/IronOreSO
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Loot
+    - Loot_Item
+  - m_GUID: 363c0918be23ffa4181dd8691bd109bf
+    m_Address: Loot/Item/WoodLogSO
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 10d3c68dfa160664cbf6154d5b2e5528, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 414cfcb2844d9c645a8db935191c86e8, type: 2}
+    - {fileID: 11400000, guid: 77d4846ab50d0854395ef3ce4e3332bc, type: 2}
