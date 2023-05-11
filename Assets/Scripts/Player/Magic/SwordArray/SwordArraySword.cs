@@ -1,8 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Player.Magic
@@ -20,7 +16,7 @@ namespace Player.Magic
         public float arcFactor = .5f;
         public Vector3 angleChangingSpeed;
         private WaitForSeconds ws;
-        public void OnCreate(int damage,Transform target,float speed,float rotationSpeed, float[] delay,SwordArray father,PlayerController player)
+        public void OnCreate(int damage, Transform target, float speed, float rotationSpeed, float[] delay, SwordArray father, PlayerController player)
         {
             this.player = player;
             this.father = father;
@@ -55,7 +51,7 @@ namespace Player.Magic
             Destroy(gameObject);
         }
 
-        Vector3 CalculateBezierPoint(float t,Vector3 startPosition, Vector3 endPosition, Vector3 controlPoint)
+        Vector3 CalculateBezierPoint(float t, Vector3 startPosition, Vector3 endPosition, Vector3 controlPoint)
         {
             float u = 1 - t;
             float uu = u * u;

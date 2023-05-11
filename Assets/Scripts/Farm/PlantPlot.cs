@@ -1,9 +1,5 @@
 ﻿using Farm.Plant;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using System.Collections;
 #if UNITY_EDITOR
@@ -31,7 +27,7 @@ namespace Farm
             ContainPlant = true;
             dayCreation = Day.DayManager.instance.dayInfo.Day;
             plantInfo = plant;
-            _mats = new Material[] { plant.PlantMaterialNotReady,plant.PlantMaterialReady };
+            _mats = new Material[] { plant.PlantMaterialNotReady, plant.PlantMaterialReady };
             StartCoroutine(GrowPlant());
         }
 
@@ -39,7 +35,7 @@ namespace Farm
         {
             _rend.enabled = true;
             _rend.material = plantInfo.Value.PlantMaterialNotReady;
-            yield return new WaitUntil(() => dayCreation+plantInfo.Value.dayGrow == Day.DayManager.instance.dayInfo.Day);
+            yield return new WaitUntil(() => dayCreation + plantInfo.Value.dayGrow == Day.DayManager.instance.dayInfo.Day);
             yield return new WaitForSeconds(plantInfo.Value.dayGrow);
             _rend.material = plantInfo.Value.PlantMaterialReady;
         }

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace Menu
 {
@@ -17,29 +17,29 @@ namespace Menu
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            StartCoroutine(ChangeColor(text.color, pressedColor,timeTransition));
+            StartCoroutine(ChangeColor(text.color, pressedColor, timeTransition));
             methodEvent.Invoke();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            StartCoroutine(ChangeColor(text.color, hoverColor,timeTransition));
+            StartCoroutine(ChangeColor(text.color, hoverColor, timeTransition));
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            StartCoroutine(ChangeColor(text.color, normalColor,timeTransition));
+            StartCoroutine(ChangeColor(text.color, normalColor, timeTransition));
         }
 
         public void ForceState(bool hover)
         {
             if (hover)
             {
-                StartCoroutine(ChangeColor(text.color, hoverColor,timeTransition));
+                StartCoroutine(ChangeColor(text.color, hoverColor, timeTransition));
             }
             else
             {
-                StartCoroutine(ChangeColor(text.color, normalColor,timeTransition));
+                StartCoroutine(ChangeColor(text.color, normalColor, timeTransition));
             }
         }
 
@@ -49,13 +49,13 @@ namespace Menu
         /// <param name="colorA">Initial Color</param>
         /// <param name="colorB">Final Color</param>
         /// <param name="time">Time of transition</param>
-        private IEnumerator ChangeColor(Color colorA,Color colorB,float time)
+        private IEnumerator ChangeColor(Color colorA, Color colorB, float time)
         {
-            Color tranColor=colorA;
-            while (tranColor!=colorB)
+            Color tranColor = colorA;
+            while (tranColor != colorB)
             {
-                tranColor=Color.Lerp(tranColor,colorB,time);
-                text.color=tranColor;
+                tranColor = Color.Lerp(tranColor, colorB, time);
+                text.color = tranColor;
                 yield return null;
             }
         }

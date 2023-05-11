@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player.Weapon
 {
@@ -8,8 +7,8 @@ namespace Player.Weapon
     {
         public string WeaponName;
         public WeaponType weaponType;
-        public int WeaponDamage=100;
-        [Range(0,100f)] public float WeaponCritChance = 5f;
+        public int WeaponDamage = 100;
+        [Range(0, 100f)] public float WeaponCritChance = 5f;
         public float WeaponCritDamage = 50f;
         public int Level;
         public string WeaponDescription;

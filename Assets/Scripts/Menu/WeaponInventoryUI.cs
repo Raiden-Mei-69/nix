@@ -2,7 +2,6 @@
 using Player.Weapon;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -64,7 +63,7 @@ namespace Menu.Inventory
         private void OnDisable()
         {
             //destroy them
-            foreach(var kvp in cellMap)
+            foreach (var kvp in cellMap)
             {
                 Destroy(kvp.Value.weaponCell.gameObject);
             }
@@ -86,15 +85,15 @@ namespace Menu.Inventory
         public void CreateCells(List<Player.Inventory.InventoryWeaponCell> settings)
         {
             int x = 0, y = 0;
-            for(int i = 0; i < settings.Count; i++)
+            for (int i = 0; i < settings.Count; i++)
             {
                 var c = WeaponInventoryCellUI.Create(Content, this, settings[i].weaponSetting);
-                Cell cell = new(false, false, i, c,new(x,y));
+                Cell cell = new(false, false, i, c, new(x, y));
                 //cells.Add(cell);
                 dictCells.Add(new(x, y, cell));
                 cellList.Add(cell);
                 cellMap.Add(new(x, y), cell);
-                var m=cellMap[new(x, y)];
+                var m = cellMap[new(x, y)];
                 m.index = i;
                 cellMap[new(x, y)] = m;
                 x++;
@@ -107,10 +106,10 @@ namespace Menu.Inventory
             //foreach (var item in settings)
             //{
             //}
-            dimensionGrid = new(columnCount,y+1);
+            dimensionGrid = new(columnCount, y + 1);
         }
 
-        public void Select(WeaponInventoryCellUI cell,Vector2Int pos)
+        public void Select(WeaponInventoryCellUI cell, Vector2Int pos)
         {
             Cell cellSel = cellMap[pos];
             Cell oldCell = cellMap[oldCellPos];
@@ -144,7 +143,7 @@ namespace Menu.Inventory
         /// </summary>
         public void OnEquip()
         {
-            var cell=cellMap[index];
+            var cell = cellMap[index];
             cell.equiped = true;
             cellMap[selCellPos] = cell;
             //var s = cells.Find((item) => item.weaponCell == selected);
@@ -222,7 +221,7 @@ namespace Menu.Inventory
         {
             //Debug.Log(cellMap.Count);
             //if(cellMap.Count==dictCells.Count)
-            Select(cellMap[index].weaponCell,index);
+            Select(cellMap[index].weaponCell, index);
         }
 
         private IEnumerator SmartUpdate()
@@ -280,7 +279,7 @@ namespace Menu.Inventory
             //weaponCell.border.SetActive(false);
         }
 
-        public Cell(bool equiped, bool selected, int index, WeaponInventoryCellUI weapon,Vector2Int pos)
+        public Cell(bool equiped, bool selected, int index, WeaponInventoryCellUI weapon, Vector2Int pos)
         {
             this.equiped = equiped;
             this.selected = selected;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.Magic
@@ -10,8 +8,8 @@ namespace Player.Magic
         public Transform target;
         public int MagicCost = 0;
         public int MagicDamage = 0;
-        public float ProjSpeed=1f;
-        public float rotationSpeed=1f;
+        public float ProjSpeed = 1f;
+        public float rotationSpeed = 1f;
         public void OnCreate(PlayerController player)
         {
             this.player = player;
@@ -28,7 +26,7 @@ namespace Player.Magic
         {
             if (player.currentTarget != null)
             {
-                target=player.currentTarget;
+                target = player.currentTarget;
             }
         }
     }

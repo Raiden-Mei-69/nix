@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,9 +32,9 @@ namespace Enemy.Attack
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag(TagManager.Instance.PlayerTag)&&enemy._attacking)
+            if (other.gameObject.CompareTag(TagManager.Instance.PlayerTag) && enemy._attacking)
             {
-                var player=other.GetComponentInParent<Player.PlayerController>();
+                var player = other.GetComponentInParent<Player.PlayerController>();
                 if (!players.Contains(player))
                 {
                     Debug.Log($"<color=red>player:{other.gameObject.name}</color>");

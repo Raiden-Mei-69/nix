@@ -1,7 +1,5 @@
 using Enemy;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -37,12 +35,12 @@ namespace Player.Weapon
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag(TagManager.Instance.EnemyTag)&&IsAttacking)
+            if (other.gameObject.CompareTag(TagManager.Instance.EnemyTag) && IsAttacking)
             {
                 if (!hits.Contains(other.gameObject))
                 {
                     //Debug.Log($"Detected collision with:{other.gameObject.name}");
-                    other.gameObject.GetComponentInParent<EnemyBase>().TakeDamage(player.playerData.DamageDealt(),player);
+                    other.gameObject.GetComponentInParent<EnemyBase>().TakeDamage(player.playerData.DamageDealt(), player);
                     hits.Add(other.gameObject);
                 }
             }
@@ -50,7 +48,7 @@ namespace Player.Weapon
             {
                 Debug.Log("Tree");
             }
-            else if (other.gameObject.CompareTag(TagManager.Instance.destructableTag)&&IsAttacking)
+            else if (other.gameObject.CompareTag(TagManager.Instance.destructableTag) && IsAttacking)
             {
                 Debug.Log("Why");
                 other.gameObject.GetComponent<World.Destructable.DestructableBase>().TakeDamage(1);
@@ -64,7 +62,7 @@ namespace Player.Weapon
 
         public void OnActive()
         {
-            foreach(var trail in trails)
+            foreach (var trail in trails)
             {
                 trail.SetActive(true);
             }

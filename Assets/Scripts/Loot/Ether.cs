@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor.Rendering;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Loot
@@ -14,7 +7,7 @@ namespace Loot
     {
         [SerializeField] private Collider _coll;
         [SerializeField] private Rigidbody _rb;
-        [SerializeField] private float speed=1f;
+        [SerializeField] private float speed = 1f;
         private Player.PlayerController target;
         private bool reachedDestination = false;
         public int _number = 1;
@@ -38,7 +31,7 @@ namespace Loot
         {
             do
             {
-                transform.position = Vector3.Slerp(transform.position, target.transform.position, speed*Time.deltaTime);
+                transform.position = Vector3.Slerp(transform.position, target.transform.position, speed * Time.deltaTime);
                 speed += Time.deltaTime;
                 yield return null;
             } while (!reachedDestination);

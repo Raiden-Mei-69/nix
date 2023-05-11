@@ -14,7 +14,7 @@ namespace Player.Weapon
 
         private void Awake()
         {
-            player=player==null?GetComponentInParent<PlayerController>() : player;
+            player = player == null ? GetComponentInParent<PlayerController>() : player;
             PlayerWeapon = PlayerWeapon == null ? PlayerWeapon.GetComponentInChildren<PlayerWeapon>() : PlayerWeapon;
             //transform.rotation = Quaternion.identity;
         }
@@ -28,8 +28,8 @@ namespace Player.Weapon
         public void DrawWeapon(PlayerWeapon weapon)
         {
             weapon.transform.SetParent(transform);
-            weapon.transform.localPosition=posWeaponOffset;
-            weapon.transform.localRotation=Quaternion.Euler(rotOffset);
+            weapon.transform.localPosition = posWeaponOffset;
+            weapon.transform.localRotation = Quaternion.Euler(rotOffset);
             weapon.OnActive();
         }
     }
@@ -46,7 +46,7 @@ namespace Player.Weapon
                 //Vector3 rot = weaponHolder.PlayerWeapon.transform.rotation;
                 weaponHolder.rotOffset = new Vector3(16.1106567f, 143.70369f, 303.722473f);
             }
-            
+
             base.OnInspectorGUI();
         }
     }

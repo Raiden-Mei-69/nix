@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.Magic
 {
     using Inventory;
-    using UnityEngine.AddressableAssets;
 
     public class UltimateMagic : MonoBehaviour
     {
@@ -21,7 +16,7 @@ namespace Player.Magic
         private void Awake()
         {
             part = part != null ? part : GetComponent<ParticleSystem>();
-            player=player != null ? player : GetComponentInParent<PlayerController>();
+            player = player != null ? player : GetComponentInParent<PlayerController>();
         }
 
         public void Attack()
@@ -40,7 +35,7 @@ namespace Player.Magic
                     //Physics.IgnoreCollision(part,other.GetComponent<Collider>());   
                 }
             }
-            
+
             if (other.CompareTag(TagManager.Instance.EnemyTag))
             {
                 other.GetComponentInParent<Enemy.EnemyBase>().TakeDamage(ultimateData.Damage, player);

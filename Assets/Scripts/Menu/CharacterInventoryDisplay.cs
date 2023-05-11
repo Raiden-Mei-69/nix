@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -17,10 +16,10 @@ namespace Menu.Inventory
     public class CharacterInventoryDisplay : MonoBehaviour
     {
         public Player.PlayerController player;
-        public int number=100;
+        public int number = 100;
         public Transform holder;
         public GridLayoutGroup grid;
-        public List<InventorySlotCell> cells=new();
+        public List<InventorySlotCell> cells = new();
         private float delayClose = .15f;
         private bool canClose = false;
 
@@ -31,19 +30,19 @@ namespace Menu.Inventory
 
         public void OnOpen(IEnumerable<Player.Inventory.InventoryItemSlot> slots)
         {
-            canClose=false;
+            canClose = false;
             string content = "";
-            foreach(var slot in slots)
+            foreach (var slot in slots)
             {
                 content += $"Name:{slot.Name} Number:{slot.Number}\n";
             }
             Debug.Log(content);
-            List<KeyValuePair<string,KeyValuePair<string,LootItemSO>>> collSlots = new();
-            foreach(var slot in slots)
+            List<KeyValuePair<string, KeyValuePair<string, LootItemSO>>> collSlots = new();
+            foreach (var slot in slots)
             {
-                collSlots.Add(new(slot.iconPath, new(slot.Number.ToString(),slot.itemSettings)));
+                collSlots.Add(new(slot.iconPath, new(slot.Number.ToString(), slot.itemSettings)));
             }
-            KeyValuePair<string,string>[] array = new KeyValuePair<string,string>[number];
+            KeyValuePair<string, string>[] array = new KeyValuePair<string, string>[number];
             Array.Fill<KeyValuePair<string, string>>(array, new(AddressablesPath.ui_inv_meat, "9999"));
             Debug.Log(array.Length);
             //OnActivate(array);
@@ -60,12 +59,12 @@ namespace Menu.Inventory
             cells.Clear();
         }
 
-        public void OnActivate(IEnumerable<KeyValuePair<string,KeyValuePair<string,LootItemSO>>> keyValuePairs)
+        public void OnActivate(IEnumerable<KeyValuePair<string, KeyValuePair<string, LootItemSO>>> keyValuePairs)
         {
             List<AsyncOperationHandle> ops = new();
-            foreach(KeyValuePair<string,KeyValuePair<string,LootItemSO>> keyValue in keyValuePairs)
+            foreach (KeyValuePair<string, KeyValuePair<string, LootItemSO>> keyValue in keyValuePairs)
             {
-                var cell=InventorySlotCell.OnCreate(holder,keyValue.Value.Value);
+                var cell = InventorySlotCell.OnCreate(holder, keyValue.Value.Value);
                 var srHandle = Addressables.LoadAssetAsync<Sprite>(keyValue.Key);
                 ops.Add(srHandle);
                 cell.Init(srHandle.WaitForCompletion(), keyValue.Value.Key);
@@ -89,9 +88,9 @@ namespace Menu.Inventory
                 yield return null;
                 if (Keyboard.current != null)
                 {
-                    if (Keyboard.current.bKey.wasPressedThisFrame&&canClose)
+                    if (Keyboard.current.bKey.wasPressedThisFrame && canClose)
                     {
-                        player.playerUI.ToggleInventory(player.inMenu=!player.inMenu);
+                        player.playerUI.ToggleInventory(player.inMenu = !player.inMenu);
                     }
                 }
             }
@@ -99,7 +98,7 @@ namespace Menu.Inventory
 
         private void OnEnable()
         {
-            OnOpen(player.playerData.inventory.inventoryItemSlots);    
+            OnOpen(player.playerData.inventory.inventoryItemSlots);
         }
 
         private void OnDisable()

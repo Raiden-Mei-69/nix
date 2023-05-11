@@ -1,6 +1,5 @@
 ﻿using Discord;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -48,7 +47,7 @@ namespace DiscordRich
         private void DiscordRichManager_OnCurrentUserUpdate()
         {
             Debug.LogWarning("<color=yellow>User Updated</color>");
-            user=discord.GetUserManager().GetCurrentUser();
+            user = discord.GetUserManager().GetCurrentUser();
             ready = true;
             userData.Set(user.Username, user.Id);
             Debug.Log(user.Username);
@@ -105,7 +104,7 @@ namespace DiscordRich
             //Debug.Log($"<color=yellow>--- {currentUser.Username} ---</color>");
             this.user = currentUser;
             Debug.Log($"user:{user.Username}");
-            userData.Set(user.Username,user.Id);
+            userData.Set(user.Username, user.Id);
             socket.ConnectToServer().ConfigureAwait(true);
             ready = true;
         }
@@ -141,7 +140,7 @@ namespace DiscordRich
 
         public IEnumerator UpdateCallback()
         {
-            while(Application.isPlaying)
+            while (Application.isPlaying)
             {
                 discord.RunCallbacks();
                 Debug.Log("Up");
@@ -234,11 +233,11 @@ namespace DiscordRich
         public DateTime connectedAt;
         public DateTime lastConnectedAt;
 
-        public void Set(string username,long id)
+        public void Set(string username, long id)
         {
             this.username = username;
             this.id = id;
-            if(connectedAt==null)
+            if (connectedAt == null)
                 connectedAt = DateTime.UtcNow;
             lastConnectedAt = DateTime.UtcNow;
         }
@@ -269,7 +268,7 @@ namespace DiscordRich
     {
         public override void OnInspectorGUI()
         {
-            DiscordRichManager discord= (DiscordRichManager)target;
+            DiscordRichManager discord = (DiscordRichManager)target;
             if (GUILayout.Button("Close"))
             {
                 discord.Close();

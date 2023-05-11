@@ -1,9 +1,4 @@
 ﻿using Enemy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Player.Ultimate
@@ -22,7 +17,7 @@ namespace Player.Ultimate
 
         private void Start()
         {
-            
+
         }
 
         public void OnStart()
@@ -38,14 +33,14 @@ namespace Player.Ultimate
         {
             transform.SetParent(sheathedWeapon.transform);
             transform.localRotation = Quaternion.Euler(sheathedWeapon.rotOffset);
-            transform.localPosition=sheathedWeapon.posOffset;
+            transform.localPosition = sheathedWeapon.posOffset;
             transform.localScale = sheathScale;
             attacking = false;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag(TagManager.Instance.EnemyTag)&&attacking)
+            if (other.gameObject.CompareTag(TagManager.Instance.EnemyTag) && attacking)
             {
                 other.gameObject.GetComponentInParent<EnemyBase>().TakeDamage(player.playerData.DamageDealt(), player);
             }

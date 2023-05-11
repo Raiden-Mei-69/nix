@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObjectMove : MonoBehaviour
 {
@@ -29,8 +27,8 @@ public class ObjectMove : MonoBehaviour
             Destroy(gameObject);
 
         transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed * m_scalefactor);
-        if(AbleHit)
-        { 
+        if (AbleHit)
+        {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, MaxLength))
             {

@@ -1,10 +1,4 @@
-﻿using Enemy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemy.Projectile
 {
@@ -14,7 +8,7 @@ namespace Enemy.Projectile
         [SerializeField] private Rigidbody _rb;
         private EnemyBase enemy;
 
-        public void OnSpawn(float speed,EnemyBase enemy)
+        public void OnSpawn(float speed, EnemyBase enemy)
         {
             this.enemy = enemy;
             Physics.IgnoreLayerCollision(gameObject.layer, enemy.gameObject.layer);

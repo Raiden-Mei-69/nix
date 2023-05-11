@@ -11,7 +11,7 @@ namespace Player.Skill.Effect
         public List<PlayerController> players = new();
         public List<Enemy.EnemyBase> enemies = new();
 
-        public void OnCreate(AreaSkill areaSkill,AreaSkillData skillData)
+        public void OnCreate(AreaSkill areaSkill, AreaSkillData skillData)
         {
             this.areaSkill = areaSkill;
             this.skillData = skillData;
@@ -43,7 +43,7 @@ namespace Player.Skill.Effect
                     {
                         enemies.ForEach((item) =>
                         {
-                            item.TakeDamage(areaSkill.Output(),areaSkill.player);
+                            item.TakeDamage(areaSkill.Output(), areaSkill.player);
                         });
                     }
                     break;

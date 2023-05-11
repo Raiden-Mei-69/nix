@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Save;
+﻿using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -16,9 +12,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        lootHolder=new GameObject("loot-holder").transform;
+        lootHolder = new GameObject("loot-holder").transform;
         lootHolder.parent = transform;
-        players=FindObjectsOfType<Player.PlayerController>();
+        players = FindObjectsOfType<Player.PlayerController>();
         for (int i = 0; i < players.Length; i++)
         {
             players[i].id = i;

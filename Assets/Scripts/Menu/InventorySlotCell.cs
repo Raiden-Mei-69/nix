@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Loot;
 using TMPro;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Loot;
+using UnityEngine.UI;
 
 namespace Menu.Inventory
 {
@@ -17,15 +12,15 @@ namespace Menu.Inventory
         public TextMeshProUGUI textQuantity;
         public LootItemSO lootItemSO;
 
-        public void Init(Sprite icon,string quantity)
+        public void Init(Sprite icon, string quantity)
         {
             iconImage.sprite = icon;
             textQuantity.text = quantity;
         }
 
-        public static InventorySlotCell OnCreate(Transform parent,LootItemSO lootItem)
+        public static InventorySlotCell OnCreate(Transform parent, LootItemSO lootItem)
         {
-            var goCell = Addressables.InstantiateAsync(AddressablesPath.inventorySlotCellPath,parent);
+            var goCell = Addressables.InstantiateAsync(AddressablesPath.inventorySlotCellPath, parent);
             InventorySlotCell cell = goCell.WaitForCompletion().GetComponent<InventorySlotCell>();
             //Addressables.Release(goCell);
             cell.lootItemSO = lootItem;

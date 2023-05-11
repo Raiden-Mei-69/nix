@@ -14,7 +14,7 @@ namespace Menu.Inventory
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            weaponInventory.Select(this,pos);
+            weaponInventory.Select(this, pos);
         }
 
         public static WeaponInventoryCellUI Create(Transform parent, WeaponInventoryUI weaponInventoryUI, WeaponSetting setting)

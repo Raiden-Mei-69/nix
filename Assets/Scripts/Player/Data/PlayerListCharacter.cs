@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Player.Data
 {
@@ -12,7 +9,7 @@ namespace Player.Data
     [Serializable]
     public class PlayerListCharacter
     {
-        public List<CharacterDetail> characters = new(); 
+        public List<CharacterDetail> characters = new();
 
         public string Stringify()
         {
@@ -20,7 +17,7 @@ namespace Player.Data
             {
                 item.SetData();
             }
-            return JsonConvert.SerializeObject(characters,Formatting.Indented); 
+            return JsonConvert.SerializeObject(characters, Formatting.Indented);
             //return UnityEngine.JsonUtility.ToJson(characters,true);
         }
     }

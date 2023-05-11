@@ -95,7 +95,7 @@ namespace Loot
             float angle = Mathf.PI * 2;
             float x = Mathf.Cos(angle);
             float z = Mathf.Sin(angle);
-            Vector3 pos = transform.position + new Vector3(x, 0f+1f, z);
+            Vector3 pos = transform.position + new Vector3(x, 0f + 1f, z);
             float angleDegree = -angle * Mathf.Rad2Deg;
             Quaternion rot = Quaternion.Euler(0, angleDegree, 0);
             Addressables.InstantiateAsync(AddressablesPath.EtherPath, pos, rot, GameManager.Instance.lootHolder).Completed += SpawnedEther;

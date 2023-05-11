@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DelayActive : MonoBehaviour
 {
@@ -17,8 +15,8 @@ public class DelayActive : MonoBehaviour
     void Update()
     {
         if (Time.time > m_time + m_delayTime)
-            for(int i = 0; i< m_activeObj.Length; i++)
-                if(m_activeObj[i] != null)
+            for (int i = 0; i < m_activeObj.Length; i++)
+                if (m_activeObj[i] != null)
                     m_activeObj[i].SetActive(true);
     }
 }

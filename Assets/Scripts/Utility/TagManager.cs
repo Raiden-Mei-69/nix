@@ -3,7 +3,7 @@
 public class TagManager : MonoBehaviour
 {
     public static TagManager Instance;
-    
+
     [TagSelector] public string PlayerTag;
     [TagSelector] public string EnemyTag;
     [TagSelector] public string etherTag;
@@ -16,8 +16,8 @@ public class TagManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance!=null)
+        if (Instance != null)
             Destroy(Instance);
-        Instance = this;    
+        Instance = this;
     }
 }

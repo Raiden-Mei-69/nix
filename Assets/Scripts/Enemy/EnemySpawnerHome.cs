@@ -11,7 +11,7 @@ namespace Enemy.Spawn
     public class EnemySpawnerHome : MonoBehaviour
     {
         public List<string> allPathEnemies = new();
-        public List<EnemyBase> enemies=new();
+        public List<EnemyBase> enemies = new();
         private Vector3[] poses;
         [SerializeField] private float respawnTime = 5f;
 
@@ -49,7 +49,7 @@ namespace Enemy.Spawn
         private IEnumerator CleanListOnDeath()
         {
             Debug.Log("<color=green>Camp is filled</color>");
-            yield return new WaitUntil(()=>enemies.Count==0);
+            yield return new WaitUntil(() => enemies.Count == 0);
             Debug.Log("<color=red>Camp is empty!</color>");
             yield return new WaitForSeconds(respawnTime);
             Spawn();

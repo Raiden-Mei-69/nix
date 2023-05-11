@@ -1,6 +1,4 @@
-using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -13,7 +11,7 @@ public class NotificationCell : MonoBehaviour
     private NotificationSystem system;
     public CanvasGroup group;
 
-    public void Show(Sprite sprite,string content, float time)
+    public void Show(Sprite sprite, string content, float time)
     {
         icon.sprite = sprite;
         Content.text = content;
@@ -42,7 +40,7 @@ public class NotificationCell : MonoBehaviour
         yield return null;
     }
 
-    public static NotificationCell Create(Transform parent,Sprite sprite,string content,float time,NotificationSystem system)
+    public static NotificationCell Create(Transform parent, Sprite sprite, string content, float time, NotificationSystem system)
     {
         var cell = Addressables.InstantiateAsync(AddressablesPath.NotificationCellPath, parent).WaitForCompletion().GetComponent<NotificationCell>();
         cell.system = system;

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObjectMoveDestroy : MonoBehaviour
 {
@@ -74,14 +72,14 @@ public class ObjectMoveDestroy : MonoBehaviour
             if (hit.transform.tag != mtag)
                 return;
         ishit = true;
-        if(m_gameObjectTail)
+        if (m_gameObjectTail)
             m_gameObjectTail.transform.parent = null;
         MakeHitObject(hit);
 
         if (isShieldActive)
         {
             ShieldActivate m_sc = hit.transform.GetComponent<ShieldActivate>();
-            if(m_sc)
+            if (m_sc)
                 m_sc.AddHitObject(hit.point);
         }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NewMaterialChange : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class NewMaterialChange : MonoBehaviour
     MeshRenderer m_meshRenderer;
     ParticleSystemRenderer m_particleRenderer;
     public float m_timeToReduce;
-    public float m_reduceFactor =0.0f;
+    public float m_reduceFactor = 0.0f;
     float m_time;
     float m_submitReduceFactor;
     float m_cutOutFactor;

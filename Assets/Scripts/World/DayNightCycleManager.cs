@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -33,7 +31,7 @@ namespace World.Time
         internal IEnumerator ChangeTimeIntensity(float intensity)
         {
             float value = m_light.intensity > intensity ? 1f : -0.1f;
-            float timeToChange=m_light.intensity-intensity;
+            float timeToChange = m_light.intensity - intensity;
             while (m_light.intensity != intensity)
             {
                 m_light.intensity += value;

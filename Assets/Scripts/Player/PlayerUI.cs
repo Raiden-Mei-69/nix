@@ -1,12 +1,11 @@
-﻿using System.Collections;
+﻿using Player.Data;
+using Player.Stat;
+using System;
+using System.Collections;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using Player.Stat;
-using Player.Data;
-using System.Text;
-using System;
-using System.Linq;
 
 namespace Player.UI
 {
@@ -60,7 +59,7 @@ namespace Player.UI
             float counter;
             do
             {
-                counter=1f/Time.unscaledDeltaTime;
+                counter = 1f / Time.unscaledDeltaTime;
                 FPSCounter_Text.text = $"{counter.ToString("f2")} FPS";
                 yield return new WaitForSeconds(.1f);
             } while (true);
@@ -82,7 +81,7 @@ namespace Player.UI
         {
             _healthBar.value = player.playerData.Health;
             _magicBar.value = player.playerData.Magic;
-            _xpSlider.maxValue=PlayerXPCapstone.XpTable[player.playerData.Level];
+            _xpSlider.maxValue = PlayerXPCapstone.XpTable[player.playerData.Level];
             _xpSlider.value = player.playerData.XP;
         }
 
@@ -93,7 +92,7 @@ namespace Player.UI
             _characterTabCamera.targetDisplay = state ? display1 : display2;
             //Debug.Log(_characterTabCamera.targetDisplay);
             _canvas.enabled = !state;
-            TabActive = state;   
+            TabActive = state;
             Debug.Log(state);
             if (state)
             {
@@ -103,21 +102,21 @@ namespace Player.UI
                 _characterXpSlider.maxValue = PlayerXPCapstone.XpTable[data.Level];
                 _characterXpSlider.value = data.XP;
                 int[] hp = SplitNumber(data.ModifiedMaxHealth);
-                _characterMaxHp.text = $"{string.Join(",",hp)}";
-                _characterAttack.text = $"{string.Join(",",SplitNumber(data.ModifiedAttack))}";
-                _characterDef.text=$"{string.Join(",",SplitNumber(data.ModifiedDef))}";
+                _characterMaxHp.text = $"{string.Join(",", hp)}";
+                _characterAttack.text = $"{string.Join(",", SplitNumber(data.ModifiedAttack))}";
+                _characterDef.text = $"{string.Join(",", SplitNumber(data.ModifiedDef))}";
                 _characterCritRate.text = $"{data.ModifiedCritRate} %";
                 _characterCritDamage.text = $"{data.ModifiedCritDamage} %";
                 //Debug.Log($"Name:{data.CharacterName}\nLevel:{data.Level}/100\nHP:{string.Join(",",SplitNumber(data.MaxHealth))}\nAttack:{string.Join(",",SplitNumber(data.BaseAttack))}");
             }
         }
 
-        public void ShowCollectable(bool state,string collName="")
+        public void ShowCollectable(bool state, string collName = "")
         {
             _collectableHolder.SetActive(state);
-            if(!state)
+            if (!state)
                 return;
-            _collectableName.text=collName;
+            _collectableName.text = collName;
         }
 
         public void ToggleInventory(bool state)

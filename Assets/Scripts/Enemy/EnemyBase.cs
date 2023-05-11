@@ -1,23 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using Utility;
 
 namespace Enemy
 {
-    using Detector;
     using Attack;
-    using UI;
-    using Unity.Transforms;
-    using Loot;
-    using UnityEngine.ResourceManagement.AsyncOperations;
-    using UnityEngine.AddressableAssets;
+    using Detector;
     using Enemy.Spawn;
-    using Unity.Services.Analytics;
+    using Loot;
+    using UI;
+    using UnityEngine.AddressableAssets;
+    using UnityEngine.ResourceManagement.AsyncOperations;
 
     public class EnemyBase : MonoBehaviour, ITargetable
     {
@@ -40,14 +35,14 @@ namespace Enemy
         public Transform targetTransformLocal;
         public bool targetableLocal = true;
         Transform ITargetable.targetTranform { get => targetTransformLocal; }
-        bool ITargetable.targetable=>targetableLocal;
+        bool ITargetable.targetable => targetableLocal;
 
         [Space(20)]
 
         [SerializeField] internal string EnemyName = "";
         [SerializeField] internal int xpToGive = 10;
         private bool _isTarget = false;
-        internal bool isTarget { get=>_isTarget; set { _isTarget = value; StartCoroutine(enemyUI.ShowingCanvasTarget()); } }
+        internal bool isTarget { get => _isTarget; set { _isTarget = value; StartCoroutine(enemyUI.ShowingCanvasTarget()); } }
         internal bool _alive = true;
         private int _health = 100;
         [SerializeField] internal int MaxHealth = 100;
@@ -58,7 +53,7 @@ namespace Enemy
         [SerializeField] internal int Damage = 5;
 
         [SerializeField] internal float _minDelay = .2f;
-        [SerializeField] internal float _maxDelay=1f;
+        [SerializeField] internal float _maxDelay = 1f;
         [SerializeField] internal Collider _collider;
         internal bool _readyToDie = false;
 
@@ -71,7 +66,7 @@ namespace Enemy
         [SerializeField] internal bool facingPlayer = false;
         [SerializeField] internal float _delayBetweenAttack = 2f;
         [SerializeField] internal bool _canAttack = true;
-        [SerializeField] internal float _moveSpeed=1f;
+        [SerializeField] internal float _moveSpeed = 1f;
         private Vector3 point;
 
         [SerializeField] internal Transform[] _waypoints;
@@ -85,7 +80,7 @@ namespace Enemy
         {
             Health = MaxHealth;
             home ??= GetComponentInParent<EnemySpawnerHome>();
-            enemyDetector = enemyDetector!=null?enemyDetector:GetComponentInChildren<EnemyDetector>();
+            enemyDetector = enemyDetector != null ? enemyDetector : GetComponentInChildren<EnemyDetector>();
             //SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             attackPos ??= GetComponentInChildren<EnemyAttackPos>();
             _alive = true;
@@ -94,20 +89,20 @@ namespace Enemy
             enemyUI.OnStart();
         }
 
-        public virtual void TakeDamage(int value,Player.PlayerController player)
+        public virtual void TakeDamage(int value, Player.PlayerController player)
         {
             this.player = this.player != null ? this.player : player;
             if (!invincible)
             {
-                invincible = true; 
+                invincible = true;
                 StartCoroutine(Invincibility());
                 Health -= value;
                 enemyUI.UpdateLife();
                 if (_damagePopup != null)
                     Destroy(_damagePopup.gameObject);
-                _damagePopup=Utility.Damage.UI.DamagePopup.Create(bodyHolder.position,transform,value.ToString(),false);
+                _damagePopup = Utility.Damage.UI.DamagePopup.Create(bodyHolder.position, transform, value.ToString(), false);
             }
-            if (Health == 0&&_alive)
+            if (Health == 0 && _alive)
             {
                 _alive = false;
                 StartCoroutine(Death());
@@ -152,7 +147,7 @@ namespace Enemy
 
         internal virtual IEnumerator Attack()
         {
-            yield return null; 
+            yield return null;
         }
 
         internal IEnumerator DelayAttack()
@@ -171,8 +166,8 @@ namespace Enemy
                 //Debug.Log(drop.Value);
                 if (drop.Value > 0)
                 {
-                    var loot=Addressables.InstantiateAsync(drop.Key.GetItems().Key.pathGO, new(transform.position.x+offsetLootPos.x, transform.position.y+offsetLootPos.y, transform.position.z+offsetLootPos.z), Quaternion.identity, GameManager.Instance.lootHolder);
-                    loot.WaitForCompletion().GetComponent<LootDrop>().Number=drop.Value;
+                    var loot = Addressables.InstantiateAsync(drop.Key.GetItems().Key.pathGO, new(transform.position.x + offsetLootPos.x, transform.position.y + offsetLootPos.y, transform.position.z + offsetLootPos.z), Quaternion.identity, GameManager.Instance.lootHolder);
+                    loot.WaitForCompletion().GetComponent<LootDrop>().Number = drop.Value;
                     ops.Add(loot);
                 }
             }
@@ -187,13 +182,13 @@ namespace Enemy
                 Vector3 dir = target.position - transform.position;
                 dir.y = 0;
                 var rot = Quaternion.LookRotation(dir);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime*2f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime * 2f);
                 yield return null;
             } while (facingPlayer);
         }
 
         public bool AtHome() =>
-            Vector3.Distance(transform.position,point)<=tresholdDistance;
+            Vector3.Distance(transform.position, point) <= tresholdDistance;
 
         public bool CanAttack() =>
             enemyAttacker.close;
@@ -206,7 +201,7 @@ namespace Enemy
                 yield return StartCoroutine(Attack());
                 yield return new WaitForSeconds(_delayBetweenAttack);
                 _attacking = false;
-            } while (_alive&&CanAttack());
+            } while (_alive && CanAttack());
         }
 
         internal virtual IEnumerator MoveTowardTarget()
@@ -215,7 +210,7 @@ namespace Enemy
             {
                 _agent.SetDestination(target.position);
                 yield return null;
-            } while (!_attacking&&_alive&&!CanAttack()&&target!=null);
+            } while (!_attacking && _alive && !CanAttack() && target != null);
         }
 
         internal virtual IEnumerator MoveToObjective()
@@ -223,7 +218,7 @@ namespace Enemy
             if (_waypoints.Length > 0)
             {
                 _agent.SetDestination(_waypoints[Random.Range(0, _waypoints.Length)].position);
-                yield return new WaitUntil(() => _agent.remainingDistance<=_agent.stoppingDistance||target!=null);
+                yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance || target != null);
                 //Debug.Log("Path Pending");
             }
             yield return null;

@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using Environment = System.Environment;
 
 namespace Save
 {
     public static class SaveManager
     {
-        private static readonly string savePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\","/")}/My Games/Arlecchino/save.json";
+        private static readonly string savePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\", "/")}/My Games/Arlecchino/save.json";
         private static readonly string savePathBak = $"{savePath}.bak";
         private static readonly string FlutSave = "C:\\Users\\lukas\\OneDrive\\Bureau\\RavenTasha\\raven\\aponia\\Arlecchino\\assets\\Data\\characters.json";
         public static void SaveGame(string data)
@@ -45,7 +39,7 @@ namespace Save
         {
             if (!File.Exists(savePath))
                 return string.Empty;
-            string content=File.ReadAllText(savePath);
+            string content = File.ReadAllText(savePath);
             if (content == string.Empty)
             {
                 return File.ReadAllText(savePathBak);

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MultipleObjectsMake : _ObjectsMakeBase
 {
@@ -32,15 +30,15 @@ public class MultipleObjectsMake : _ObjectsMakeBase
         {
             if (Time.time > m_Time2 + m_makeDelay && m_count < m_makeCount)
             {
-                Vector3 m_pos = transform.position + GetRandomVector(m_randomPos)* m_scalefactor; 
+                Vector3 m_pos = transform.position + GetRandomVector(m_randomPos) * m_scalefactor;
                 Quaternion m_rot = transform.rotation * Quaternion.Euler(GetRandomVector(m_randomRot));
-                
+
 
                 for (int i = 0; i < m_makeObjs.Length; i++)
                 {
                     GameObject m_obj = Instantiate(m_makeObjs[i], m_pos, m_rot);
                     Vector3 m_scale = (m_makeObjs[i].transform.localScale + GetRandomVector2(m_randomScale));
-                    if(isObjectAttachToParent)
+                    if (isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;
                     m_obj.transform.localScale = m_scale;
                 }

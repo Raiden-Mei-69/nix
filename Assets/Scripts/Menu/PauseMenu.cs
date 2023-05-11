@@ -83,9 +83,9 @@ namespace Menu
         private void Selected()
         {
             selectText.ForceState(false);
-            selectText=subs[indexSelected];
+            selectText = subs[indexSelected];
             selectText.ForceState(true);
-        } 
+        }
 
         private void OnClick()
         {
@@ -96,7 +96,7 @@ namespace Menu
         {
             while (gameObject.activeSelf)
             {
-                if(Keyboard.current != null)
+                if (Keyboard.current != null)
                 {
                     if (Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame)
                     {
@@ -106,12 +106,12 @@ namespace Menu
                     {
                         ScrollUp();
                     }
-                    else if(Keyboard.current.fKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame)
+                    else if (Keyboard.current.fKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame)
                     {
                         OnClick();
                     }
                 }
-                if(Gamepad.current != null)
+                if (Gamepad.current != null)
                 {
                     if (Gamepad.current.dpad.down.wasPressedThisFrame)
                     {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Farm.Plant;
 using Utility;
 using System.Collections;
@@ -17,10 +13,10 @@ namespace Farm
     public class PlantPlotHolder : MonoBehaviour
     {
         public int numberFrameDelay = 3;
-        public List<PlantPlot> plantPlots=new();
+        public List<PlantPlot> plantPlots = new();
         int index = 0;
         public List<PlantPlot> harvestablePlantPlot = new();
-        public Vector2 GridSize=new(6,6);
+        public Vector2 GridSize = new(6, 6);
         [SerializeField] private PlantPlot prefabPlot;
 
         private void Start()
@@ -30,7 +26,7 @@ namespace Farm
 
         private void Update()
         {
-  
+
         }
 
         public void ChangeGrid()
@@ -46,7 +42,7 @@ namespace Farm
             {
                 for (int y = 0; y < GridSize.y; y++)
                 {
-                    plantPlots.Add(Instantiate(prefabPlot, new(x + .5f,0f, y + .5f), Quaternion.identity, transform));
+                    plantPlots.Add(Instantiate(prefabPlot, new(x + .5f, 0f, y + .5f), Quaternion.identity, transform));
                 }
             }
         }
@@ -89,7 +85,7 @@ namespace Farm
             plants.Shuffle();
             foreach (var item in plantPlots)
             {
-                if(item.ContainPlant)
+                if (item.ContainPlant)
                     harvestablePlantPlot.Add(item);
             }
             foreach (var item in plantPlots)
@@ -115,7 +111,7 @@ namespace Farm
             PlantPlotHolder plantPlotHolder = (PlantPlotHolder)target;
             if (GUILayout.Button("GetData"))
             {
-                plantPlotHolder.plantPlots=plantPlotHolder.GetComponentsInChildren<PlantPlot>().ToList();
+                plantPlotHolder.plantPlots = plantPlotHolder.GetComponentsInChildren<PlantPlot>().ToList();
             }
             base.OnInspectorGUI();
         }

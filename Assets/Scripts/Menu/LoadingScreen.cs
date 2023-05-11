@@ -27,12 +27,12 @@ namespace Menu.Loading
 
         private void Start()
         {
-           // SceneManager.UnloadSceneAsync(SceneInfo.SceneIndex[SceneInfo.SceneEnum.MainMenu]);
+            // SceneManager.UnloadSceneAsync(SceneInfo.SceneIndex[SceneInfo.SceneEnum.MainMenu]);
         }
 
-        public void OnCreate(string targetVideo,string targetScene)
+        public void OnCreate(string targetVideo, string targetScene)
         {
-            ScreenSize = new(Screen.width,Screen.height);
+            ScreenSize = new(Screen.width, Screen.height);
             SetImageScale();
             //SetVideoLoading(targetVideo);
             //StartCoroutine(LoadSceneBackground(targetScene));
@@ -61,7 +61,7 @@ namespace Menu.Loading
         {
             yield return new WaitForSeconds(2f);
             var op = Addressables.LoadSceneAsync(targetScene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
-            while (op.PercentComplete<1)
+            while (op.PercentComplete < 1)
             {
                 progressBar.value = op.PercentComplete;
                 yield return null;

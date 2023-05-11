@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class VariousTranslateMove : MonoBehaviour {
+public class VariousTranslateMove : MonoBehaviour
+{
 
     public float m_power;
     public float m_reduceTime;
@@ -17,21 +16,22 @@ public class VariousTranslateMove : MonoBehaviour {
         m_Time = Time.time;
     }
 
-	void Update () {
+    void Update()
+    {
         m_changedFactor = VariousEffectsScene.m_gaph_scenesizefactor;
 
         if (m_fowardMove)
             transform.Translate(transform.forward * m_power * m_changedFactor);
         if (m_rightMove)
-            transform.Translate(transform.right * m_power* m_changedFactor);
+            transform.Translate(transform.right * m_power * m_changedFactor);
         if (m_upMove)
-            transform.Translate(transform.up * m_power* m_changedFactor);
+            transform.Translate(transform.up * m_power * m_changedFactor);
 
         //transform.LookAt(Vector3.zero);
 
         if (m_Time + m_reduceTime < Time.time && m_reduceTime != 0)
         {
-            m_power -= Time.deltaTime/10;
+            m_power -= Time.deltaTime / 10;
             m_power = Mathf.Clamp01(m_power);
         }
     }

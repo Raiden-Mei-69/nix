@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 #if UNITY_EDITOR
-using UnityEditor;
+using UnityEditor; 
 #endif
 
 namespace Dungeon
@@ -62,7 +62,7 @@ namespace Dungeon
             //if no door then exit
             if (doors.Count == 0)
                 return;
-            if(emptyRoom.Count == 0)
+            if (emptyRoom.Count == 0)
             {
                 emptyRoom.Add(Instantiate(rooms.First(), baseRoom.transform));
             }

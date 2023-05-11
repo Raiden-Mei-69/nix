@@ -18,7 +18,7 @@ namespace Loot
             int rnd = UnityEngine.Random.Range(0, 101);
             if (rnd <= chanceSpawning)
             {
-                if (fixedDrop)
+                if (fixedDrop) 
                 {
                     return new(loot, forkDrop.First());
                 }

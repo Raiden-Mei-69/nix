@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -45,7 +44,7 @@ public class ShieldActivate : MonoBehaviour
     public void AddHitObject(Vector3 position)
     {
         position -= transform.position;
-        position = position.normalized/2;
+        position = position.normalized / 2;
         Hitpoints.Add(new Vector4(position.x, position.y, position.z, 0));
     }
 

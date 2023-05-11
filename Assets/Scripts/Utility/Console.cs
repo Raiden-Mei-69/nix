@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #if ENABLE_INPUT_SYSTEM
-    using UnityEngine.InputSystem;
+using UnityEngine.InputSystem;
 #endif
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
 #endif
 
 namespace Consolation
@@ -22,11 +22,11 @@ namespace Consolation
         #region Inspector Settings
 
         [SerializeField, Tooltip("Hotkey to show and hide the console.")]
-        #if ENABLE_INPUT_SYSTEM
-            Key toggleKey = Key.Backquote;
-        #else
+#if ENABLE_INPUT_SYSTEM
+        Key toggleKey = Key.Backquote;
+#else
             KeyCode toggleKey = KeyCode.BackQuote;
-        #endif
+#endif
 
         [SerializeField, Tooltip("Whether to open as soon as the game starts.")]
         bool openOnStart;
@@ -370,42 +370,42 @@ namespace Consolation
 
         bool WasMultiTouchThresholdExceeded()
         {
-            #if ENABLE_INPUT_SYSTEM
-                var touchCount = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count;
-            #else
+#if ENABLE_INPUT_SYSTEM
+            var touchCount = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count;
+#else
                 var touchCount = Input.touchCount;
-            #endif
+#endif
 
             return touchCount > 2;
         }
 
         bool WasShaken()
         {
-            #if ENABLE_INPUT_SYSTEM
-                var acceleration = Accelerometer.current?.acceleration.ReadValue() ?? Vector3.zero;
-            #else
+#if ENABLE_INPUT_SYSTEM
+            var acceleration = Accelerometer.current?.acceleration.ReadValue() ?? Vector3.zero;
+#else
                 var acceleration = Input.acceleration;
-            #endif
+#endif
 
             return acceleration.sqrMagnitude > shakeAcceleration;
         }
 
         bool WasToggleKeyPressed()
         {
-            #if ENABLE_INPUT_SYSTEM
-                return Keyboard.current[toggleKey].wasPressedThisFrame;
-            #else
+#if ENABLE_INPUT_SYSTEM
+            return Keyboard.current[toggleKey].wasPressedThisFrame;
+#else
                 return Input.GetKeyDown(toggleKey);
-            #endif
+#endif
         }
 
         static void EnableMultiTouch()
         {
-            #if ENABLE_INPUT_SYSTEM
-                UnityEngine.InputSystem.EnhancedTouch.EnhancedTouchSupport.Enable();
-            #else
+#if ENABLE_INPUT_SYSTEM
+            UnityEngine.InputSystem.EnhancedTouch.EnhancedTouchSupport.Enable();
+#else
                 Input.multiTouchEnabled = true;
-            #endif
+#endif
         }
     }
 

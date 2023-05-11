@@ -31,21 +31,21 @@ namespace Player.Data
         [Header("Base Stat")]
         public int BaseMaxHealth = 100;
         public int BaseAttack = 100;
-        public int BaseDef=10;
+        public int BaseDef = 10;
         public float CritRate = 5f;
         public float CritDamage = 50f;
 
         [Header("Modified Stat")]
         public int ModifiedMaxHealth = 100;
         public int ModifiedAttack = 10;
-        public int ModifiedDef=10;
+        public int ModifiedDef = 10;
         public float ModifiedCritRate;
         public float ModifiedCritDamage;
 
         public EquipedWeapon equipedWeapon;
         public PlayerInventory inventory;
 
-        public bool Load(string json,PlayerController player)
+        public bool Load(string json, PlayerController player)
         {
             this.player = player;
             inventory.data = this;
@@ -101,14 +101,14 @@ namespace Player.Data
             InventoryWeaponCell oldWeap = equipedWeapon;
             oldWeap.equiped = false;
             Debug.Log($"<color=yellow>{newWeap.Name}</color>");
-            equipedWeapon=new(newWeap.weaponSetting);
+            equipedWeapon = new(newWeap.weaponSetting);
             ChangeWeapon();
         }
 
         public void ChangeWeapon()
         {
             UnityEngine.Object.Destroy(player.playerWeapon.gameObject);
-            var go=Addressables.InstantiateAsync(equipedWeapon.pathGO, player.WeaponHolder.transform).WaitForCompletion();
+            var go = Addressables.InstantiateAsync(equipedWeapon.pathGO, player.WeaponHolder.transform).WaitForCompletion();
             go.transform.localScale = new(go.transform.localScale.x / player.scaleFactor.x, go.transform.localScale.x / player.scaleFactor.x, go.transform.localScale.x / player.scaleFactor.x);
             player.EquipWeapon(go.GetComponent<PlayerWeapon>());
         }
@@ -119,7 +119,7 @@ namespace Player.Data
             BaseMaxHealth = stat.MaxHealth;
             BaseAttack = stat.BaseAttack;
             BaseDef = stat.BaseDef;
-            CritRate=stat.BaseCritRate;
+            CritRate = stat.BaseCritRate;
             CritDamage = stat.BaseCritDamage;
             SetModifiedStat();
         }

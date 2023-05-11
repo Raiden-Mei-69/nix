@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScaleFactorApplyToMaterial : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class ScaleFactorApplyToMaterial : MonoBehaviour
     {
         m_changedFactor = VariousEffectsScene.m_gaph_scenesizefactor; //Please change this in your actual project
 
-        if(m_scaleFactor != m_changedFactor && m_changedFactor <= 1)
+        if (m_scaleFactor != m_changedFactor && m_changedFactor <= 1)
         {
             m_scaleFactor = m_changedFactor;
             if (m_scaleFactor <= 0.5f)

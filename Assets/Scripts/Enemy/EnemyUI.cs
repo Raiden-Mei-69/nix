@@ -45,12 +45,12 @@ namespace Enemy.UI
                     yield break;
                 var lookPos = m_Enemy.player.transform.position - transform.position;
                 lookPos.y = 0;
-                lookPos.x-=_offsetCanvas.x;
+                lookPos.x -= _offsetCanvas.x;
                 lookPos.z -= _offsetCanvas.z;
                 var rotation = Quaternion.LookRotation(lookPos);
                 canvas.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotSpeed);
                 yield return null;
-            } while (canvas.gameObject.activeSelf&&m_Enemy.player!=null);
+            } while (canvas.gameObject.activeSelf && m_Enemy.player != null);
         }
 
         internal IEnumerator ShowingCanvasTarget()

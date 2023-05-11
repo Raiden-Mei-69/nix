@@ -11,7 +11,7 @@ namespace Player.Skill
         public override void ActionSkill()
         {
             base.ActionSkill();
-            Instantiate(go, transform.position, Quaternion.identity).OnCreate(this,skillData);
+            Instantiate(go, transform.position, Quaternion.identity).OnCreate(this, skillData);
         }
 
         public void OnAfterDeserialize()

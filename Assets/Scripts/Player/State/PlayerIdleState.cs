@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player.Animation {
+namespace Player.Animation
+{
     public class PlayerIdleState : StateMachineBehaviour
     {
         public PlayerController player;

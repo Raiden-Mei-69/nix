@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Array = System.Array;
 
 public class NotificationSystem : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class NotificationSystem : MonoBehaviour
 
     public int MaxStackNotif = 5;
     public float timeDisplay = 5f;
-    [SerializeField] private List<NotificationCell> cells=new();
+    [SerializeField] private List<NotificationCell> cells = new();
     [SerializeField] LootDrop loot;
     [SerializeField] private Transform contentHolder;
     [SerializeField] private Transform DisapearPos;
@@ -45,7 +43,7 @@ public class NotificationSystem : MonoBehaviour
     /// <param name="content">The content of the notification for the text</param>
     public void CreateNewNotif(Sprite sprite, string content)
     {
-        NotificationCell cell = NotificationCell.Create(contentHolder, sprite, content, timeDisplay,this);
+        NotificationCell cell = NotificationCell.Create(contentHolder, sprite, content, timeDisplay, this);
         cells.RemoveAll((item) => item == null);
         int index = cells.Count == MaxStackNotif ? -1 : 0;
         if (index == -1)
@@ -66,12 +64,12 @@ public class NotificationSystem : MonoBehaviour
     public IEnumerator OnCellDestroy(NotificationCell cell)
     {
         cell.transform.SetParent(transform);
-        Vector3 pos=cell.transform.position;
-        while (cell.transform.position.y!=DisapearPos.transform.position.y)
+        Vector3 pos = cell.transform.position;
+        while (cell.transform.position.y != DisapearPos.transform.position.y)
         {
-            Vector3 newPos=Vector3.Lerp(cell.transform.position, DisapearPos.position, .5f);
+            Vector3 newPos = Vector3.Lerp(cell.transform.position, DisapearPos.position, .5f);
             cell.transform.position = newPos;
-            yield return null;  
+            yield return null;
         }
         DOTweenModuleUI.DOFade(cell.group, 0, .5f).OnComplete(cell.OnDestroyCell);
     }

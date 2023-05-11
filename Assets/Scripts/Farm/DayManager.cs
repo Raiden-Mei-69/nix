@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Farm.Day
@@ -38,7 +34,7 @@ namespace Farm.Day
     [Serializable]
     public class DayInfo
     {
-        public int Day=1;
+        public int Day = 1;
 
         public float TimeOfDay = 0f;
         public float DayDuration = 120f;

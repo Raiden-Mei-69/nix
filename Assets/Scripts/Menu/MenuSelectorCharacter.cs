@@ -39,8 +39,8 @@ namespace Menu.Character
         {
             activeSection.menuSectionScript.Disable();
             activeSection.m_object.SetActive(false);
-            var s=System.Array.Find(menuSections,(item) => item.menuSection == section);
-            int i = System.Array.FindIndex(menuSections,(item)=>item.menuSection==section);
+            var s = System.Array.Find(menuSections, (item) => item.menuSection == section);
+            int i = System.Array.FindIndex(menuSections, (item) => item.menuSection == section);
             indexTab = i;
             activeSection = s;
             s.m_object.SetActive(true);
@@ -71,7 +71,7 @@ namespace Menu.Character
         {
             do
             {
-                if(Gamepad.current != null)
+                if (Gamepad.current != null)
                 {
                     if (Gamepad.current.leftShoulder.wasPressedThisFrame)
                     {

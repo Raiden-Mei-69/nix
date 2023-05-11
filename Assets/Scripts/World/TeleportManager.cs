@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace World
@@ -18,7 +15,7 @@ namespace World
             //get the Teleporter on the map
             Teleporters.AddRange(FindObjectsOfType<Teleporter>());
             //and then we clean the list of the duplicate
-            Teleporters=new(Teleporters.Distinct());
+            Teleporters = new(Teleporters.Distinct());
         }
 
         public Vector3 GetTeleporter(bool next = true)
@@ -36,7 +33,7 @@ namespace World
                 --indexTeleport;
                 if (indexTeleport < 0)
                 {
-                    indexTeleport=Teleporters.Count-1;
+                    indexTeleport = Teleporters.Count - 1;
                 }
             }
             Debug.Log(Teleporters[indexTeleport].gameObject.name);

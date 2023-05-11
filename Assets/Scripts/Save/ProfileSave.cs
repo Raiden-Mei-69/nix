@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Save.Profile
 {
-    [CreateAssetMenu(fileName ="Settings\\Profile")]
+    [CreateAssetMenu(fileName = "Settings\\Profile")]
     public class ProfileSave : ScriptableObject
     {
         public Vector2 camSensitivityMouse;

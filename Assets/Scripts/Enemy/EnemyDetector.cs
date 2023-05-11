@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemy.Detector
 {
@@ -24,7 +19,7 @@ namespace Enemy.Detector
                 enemy.facingPlayer = true;
                 enemy.StartCoroutine(enemy.FacePlayer());
                 enemy.ShowUI();
-            }    
+            }
         }
 
         private void OnTriggerExit(Collider other)

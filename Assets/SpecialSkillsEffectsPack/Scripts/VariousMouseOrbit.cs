@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class VariousMouseOrbit : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class VariousMouseOrbit : MonoBehaviour
     void Start()
     {
         Vector3 angles = transform.eulerAngles;
-        x = angles.x+50;
+        x = angles.x + 50;
         y = angles.y;
         distance = 30;
         Target = Targets[0];
@@ -34,43 +33,43 @@ public class VariousMouseOrbit : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            if (i < Targets.Length-1)
+            if (i < Targets.Length - 1)
                 i++;
-            else if (i >= Targets.Length-1)
+            else if (i >= Targets.Length - 1)
                 i = 0;
-            Target = Targets[i];       
+            Target = Targets[i];
         }
 
 
-            if (Input.GetKey(KeyCode.Mouse1))
-             {
-                if (Target)
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            if (Target)
+            {
+                x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+                y += Input.GetAxis("Mouse Y") * ySpeed * 0.05f;
+
+                y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+                Quaternion rotation = Quaternion.Euler(y, x, 0);
+                Vector3 position = rotation * new Vector3(0, 0, -distance) + Target.position;
+
+                transform.rotation = rotation;
+                transform.position = position;
+                distance = CameraDist;
+
+                if (Input.GetKey(KeyCode.W))
                 {
-                    x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-                    y += Input.GetAxis("Mouse Y") * ySpeed * 0.05f;
-
-                    y = ClampAngle(y, yMinLimit, yMaxLimit);
-
-                    Quaternion rotation = Quaternion.Euler(y, x, 0);
-                    Vector3 position = rotation * new Vector3(0, 0, -distance) + Target.position;
-
-                    transform.rotation = rotation;
-                    transform.position = position;
-                    distance = CameraDist;
-
-                    if (Input.GetKey(KeyCode.W))
-                    {
-                        CameraDist -= Time.deltaTime * 20f;
-                        CameraDist = Mathf.Clamp(CameraDist,2,80);
-                    }
-                    if (Input.GetKey(KeyCode.S))
-                    {
-                        CameraDist += Time.deltaTime * 20f;
-                        CameraDist = Mathf.Clamp(CameraDist, 2, 80);
-                    }
-              }
+                    CameraDist -= Time.deltaTime * 20f;
+                    CameraDist = Mathf.Clamp(CameraDist, 2, 80);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    CameraDist += Time.deltaTime * 20f;
+                    CameraDist = Mathf.Clamp(CameraDist, 2, 80);
+                }
+            }
         }
     }
 

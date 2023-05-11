@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player.Animation
 {
@@ -30,7 +25,7 @@ namespace Player.Animation
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             player.AttackAnimFinished();
-            if(last)
+            if (last)
                 player.OnLastAttackCombo();
         }
 

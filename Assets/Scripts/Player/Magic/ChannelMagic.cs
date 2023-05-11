@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +9,7 @@ namespace Player.Magic
         public PlayerController player;
         public int Damage = 5;
         public ParticleSystem part;
-        public List<ParticleCollisionEvent> collisionEvents=new();
+        public List<ParticleCollisionEvent> collisionEvents = new();
         public int emitNumber = 25;
         private void Start()
         {
@@ -27,19 +26,19 @@ namespace Player.Magic
 
         private void OnParticleCollision(GameObject other)
         {
-            int num=part.GetCollisionEvents(other,collisionEvents);
-            for (int i = 0; i < part.GetCollisionEvents(other,collisionEvents); i++)
+            int num = part.GetCollisionEvents(other, collisionEvents);
+            for (int i = 0; i < part.GetCollisionEvents(other, collisionEvents); i++)
             {
 
             }
             if (other.gameObject.CompareTag("Player"))
             {
-                
+
 
             }
             else if (other.CompareTag(TagManager.Instance.EnemyTag))
             {
-                other.GetComponent<Enemy.EnemyBase>().TakeDamage(Damage,player);
+                other.GetComponent<Enemy.EnemyBase>().TakeDamage(Damage, player);
             }
         }
     }

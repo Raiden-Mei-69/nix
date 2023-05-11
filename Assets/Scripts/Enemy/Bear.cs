@@ -1,14 +1,13 @@
 using Enemy.Types;
 using Player;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
 {
     public class Bear : MeleeEnemyBase
     {
-        
+
         #region Animation
         private int _deathID;
         private int _jumpID;
@@ -29,7 +28,7 @@ namespace Enemy
 
         private int[] _comboAttack;
         #endregion
-        private bool _isSleeping=false;
+        private bool _isSleeping = false;
         //public bool IsSleeping { get=>_isSleeping; set { _isSleeping = value;Sleeping(); } }
 
 
@@ -63,13 +62,13 @@ namespace Enemy
             _deathID = Animator.StringToHash("Death");
             _comboID = Animator.StringToHash("Combo");
 
-            _comboAttack =new int[] { _attack1ID, _attack2ID, _attack3ID, _attack4ID };
+            _comboAttack = new int[] { _attack1ID, _attack2ID, _attack3ID, _attack4ID };
         }
 
         public override void TakeDamage(int value, PlayerController player)
         {
             base.TakeDamage(value, player);
-            if(!invincible)
+            if (!invincible)
                 animator.SetTrigger(_takeDamageID);
         }
 
@@ -111,13 +110,13 @@ namespace Enemy
             do
             {
                 yield return null;
-            } while (_isSleeping&&!CanAttack());
+            } while (_isSleeping && !CanAttack());
             Sleeping();
         }
 
         public void Sleeping()
         {
-            _isSleeping = !CanAttack()&&AtHome()&&target==null;
+            _isSleeping = !CanAttack() && AtHome() && target == null;
             animator.SetBool(_sleepID, _isSleeping);
             StartCoroutine(SleepingUpdate());
         }

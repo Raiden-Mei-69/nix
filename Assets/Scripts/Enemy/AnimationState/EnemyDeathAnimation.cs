@@ -1,6 +1,4 @@
 ﻿using Enemy;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDeathAnimation : StateMachineBehaviour
@@ -16,7 +14,7 @@ public class EnemyDeathAnimation : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //Debug.Log(stateInfo.normalizedTime > 1);
-        if(enemyBase != null)
+        if (enemyBase != null)
         {
             enemyBase._readyToDie = true;
         }

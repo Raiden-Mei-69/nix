@@ -14,8 +14,6 @@ namespace Player
     using Save;
     using System;
     using System.Linq;
-    using System.Net.Http;
-    using System.Text;
     using System.Threading.Tasks;
     using UI;
     using Ultimate;
@@ -158,10 +156,10 @@ namespace Player
         private Coroutine routineAttack;
         private bool canChangeTarget = true;
 
-        [Space(5),Header("Magic Atttack")]
+        [Space(5), Header("Magic Atttack")]
         public PlayerSkill playerSkill;
 
-        [Space(5),Header("Ultimate")]
+        [Space(5), Header("Ultimate")]
         public PlayerUltimateWeapon ultimateWeapon;
         private bool ultimateActive = false;
         public Transform ultimateHolder;
@@ -588,7 +586,7 @@ namespace Player
             {
                 _speed = targetSpeed;
             }
-            if (inUltimate&&targetSpeed!=0)
+            if (inUltimate && targetSpeed != 0)
             {
                 _speed = ultimateWeapon.moveSpeedDuringUltimate;
                 Debug.Log(_speed);
@@ -667,9 +665,9 @@ namespace Player
             Vector3 spherePosition = new(transform.position.x - GroundOffset.x, transform.position.y - GroundOffset.y, transform.position.z - GroundOffset.z);
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, groundLayer);
             _inWater = Physics.CheckSphere(spherePosition, GroundedRadius, waterMask);
-            if (_inWater&&routineSwim==null)
+            if (_inWater && routineSwim == null)
             {
-                routineSwim=StartCoroutine(InSwimming());
+                routineSwim = StartCoroutine(InSwimming());
             }
             if (!Grounded)
             {
@@ -679,9 +677,9 @@ namespace Player
             {
                 _touchingSomething = false;
             }
-            if (!_inDash && !_inWater && routineFalling == null&&!Grounded)
+            if (!_inDash && !_inWater && routineFalling == null && !Grounded)
                 routineFalling = StartCoroutine(InAir());
-                //_animator.SetBool(_fallingID, !Grounded);
+            //_animator.SetBool(_fallingID, !Grounded);
         }
 
         private void CameraRotation()
@@ -1069,7 +1067,7 @@ namespace Player
             controller.center = new(controller.center.x, offsetSwimmingController, controller.center.z);
             Debug.Log("Swimming");
             _animator.SetBool(_swimmingID, _inWater);
-            yield return new WaitUntil(()=>!_inWater);
+            yield return new WaitUntil(() => !_inWater);
             controller.center = new(controller.center.x, offsetControllerLand, controller.center.z);
             _animator.SetBool(_swimmingID, _inWater);
             routineSwim = null;
@@ -1079,7 +1077,7 @@ namespace Player
         {
             _animator.SetTrigger(_fallTriggerID);
             _animator.SetBool(_fallingID, true);
-            yield return new WaitUntil(() => Grounded&&!_inWater);
+            yield return new WaitUntil(() => Grounded && !_inWater);
             _animator.SetBool(_fallingID, false);
             routineFalling = null;
         }

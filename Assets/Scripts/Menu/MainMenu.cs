@@ -2,12 +2,10 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
-using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using Utility;
 
 namespace Menu
@@ -39,7 +37,7 @@ namespace Menu
         {
             if (clicked)
                 return;
-            if(Keyboard.current is not null)
+            if (Keyboard.current is not null)
             {
                 if (Keyboard.current.anyKey.wasPressedThisFrame && canClick)
                 {
@@ -47,7 +45,7 @@ namespace Menu
                     clicked = true;
                 }
             }
-            if(Gamepad.current is not null)
+            if (Gamepad.current is not null)
             {
                 //TODO: do the detection of multiple input
                 //if (Gamepad.current.allControls.Count > 0)
