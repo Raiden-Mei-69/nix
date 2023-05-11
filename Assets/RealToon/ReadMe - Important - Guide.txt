@@ -88,6 +88,21 @@ Recommended Unity and SRP Versions:
 [RealToon URP] - Unity 2019.3.0 to newer versions and URP V7.1.1 or latest version.
 [RealToon HDRP] - Unity 2019 to newer versions and HDRP V7.2.0 or latest version.
 
+Unity and SRP(URP and HDRP) Versions:
+[URP]
+Unity 2022.2.0 to Later - URP 14
+Unity 2021.2.0 to before 2022.2.0 - URP 12 to 13
+Unity 2021.1.0 to before 2021.2.0 - URP 11
+Unity 2020.3.0 to before 2021.2.0 - URP 10
+Unity 2019.4.0 to before 2020.3.0 - URP 7 to 8
+
+[HDRP]
+Unity 2022.2.0 to Later - HDRP 14
+Unity 2021.2.0 to before 2022.2.0 - HDRP 12 to 13
+Unity 2020.2.0 to before 2021.2.0 - HDRP 11 to 10
+Unity 2020.1.0 to before 2020.2.0 - HDRP 7 to 8
+
+
 Recommended Unity versions for Built-In RP/3D:
 From Unity 5 to current latest unity version.
 
@@ -113,7 +128,7 @@ For Example/Demo
 Notes
 ===========================================================================
 
-*For VRoid model users, read "For VRoid users please read.txt" text file.
+*For VRoid model users, read the "For VRoid model users.txt".
 *For documentation or user guide, read "RealToon (User Guide).pdf" pdf/printed document file.
 *To know previous or current version, read "Change - Fix Log.txt" text file. 
 *To know what's new, read the "What's New.txt" text file.
