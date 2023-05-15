@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,18 +10,21 @@ namespace World.Time
 
     public class DayNightCycleManager : MonoBehaviour
     {
+        public WorldInfo WorldInfo;
+        public bool doingCycle = false;
         [Header("Component")]
         public Light m_light;
         public float ValueIntensity = 0;
-
-        [Header("Light Intensity")]
-        [SerializeField] internal float nightIntensity;
-        [SerializeField] internal float dayIntensity;
+        private float __timeScape = 1;
+        public float TimeScape { get => __timeScape; set { __timeScape = Mathf.Clamp(value, 1, 20);UnityEngine.Time.timeScale = TimeScape; } }
 
         // Use this for initialization
         void Start()
         {
-            StartCoroutine(ChangeTimeIntensity(nightIntensity));
+            if(doingCycle)
+            {
+                StartCoroutine(DayNightCycle());
+            }
         }
 
         internal void ChangeLight(float intensity)
@@ -28,49 +32,38 @@ namespace World.Time
             m_light.intensity = intensity;
         }
 
+        private IEnumerator DayNightCycle()
+        {
+            WorldInfo.currentTime = 0f;
+            do
+            {
+
+                yield return new WaitForSeconds(WorldInfo.tick);
+                var kvp = WorldInfo.AdvanceTime(WorldInfo.currentTimeDay);
+                if (kvp.Key)
+                {
+                    WorldInfo.currentTimeDay = kvp.Value;
+                }
+
+            } while (gameObject.activeSelf);
+        }
+
         internal IEnumerator ChangeTimeIntensity(float intensity)
         {
-            float value = m_light.intensity > intensity ? 1f : -0.1f;
-            float timeToChange = m_light.intensity - intensity;
-            while (m_light.intensity != intensity)
-            {
-                m_light.intensity += value;
-                ValueIntensity = m_light.intensity;
-                yield return null;
-            }
+            yield return null;
             Debug.Log("Transition completed");
         }
-    }
 
-#if UNITY_EDITOR
-    [CustomEditor(typeof(DayNightCycleManager))]
-    public class DayNightCycleManagerEditor : Editor
-    {
-        public override void OnInspectorGUI()
+        private void Update()
         {
-            DayNightCycleManager manager = (DayNightCycleManager)target;
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Night"))
+            if (Keyboard.current.leftBracketKey.wasPressedThisFrame)
             {
-                manager.ChangeLight(manager.nightIntensity);
+                TimeScape--;
             }
-            else if (GUILayout.Button("Day"))
+            else if(Keyboard.current.rightBracketKey.wasPressedThisFrame)
             {
-                manager.ChangeLight(manager.dayIntensity);
+                TimeScape++;
             }
-            GUILayout.EndHorizontal();
-            //GUILayout.BeginHorizontal();
-            //if(GUILayout.Button("Trans Night"))
-            //{
-            //    manager.StartCoroutine(manager.ChangeTimeIntensity(manager.nightIntensity));
-            //}
-            //else if(GUILayout.Button("Trans Day"))
-            //{
-            //    manager.StartCoroutine(manager.ChangeTimeIntensity(manager.dayIntensity));
-            //}
-            //GUILayout.EndHorizontal();
-            base.OnInspectorGUI();
         }
     }
-#endif
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21401dd308e6dd041a3c440bb51a628f, type: 3}
+  m_Name: World Info
+  m_EditorClassIdentifier: 
+  WorldName: Alien World
+  cycleDuration: 24
+  durationDayHour: 12
+  durationNightHour: 12
+  currentTime: 0
+  NightStart:
+    x: 19
+    y: 0
+  DayStart:
+    x: 6
+    y: 0
+  currentTimeDay: 1
+  durationCycleIRTM: 24
+  durationDayIRTM: 12
+  durationNightIRTM: 12
+  durationDayHours: 12
+  numberOfMinuteIRTMPerHour: 1
+  durationTickMinute: 0.016666668
+  durationDaySeconds: 720
+  durationHourSeconds: 60
+  tick: 1
+  ActualTime:
+    x: 22
+    y: 0
