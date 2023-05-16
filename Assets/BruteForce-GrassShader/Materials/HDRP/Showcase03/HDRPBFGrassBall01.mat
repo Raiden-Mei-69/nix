@@ -2,20 +2,30 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HDRPBFGrassBall01
   m_Shader: {fileID: 4800000, guid: 26cee2a83feb2624c898843862b23f88, type: 3}
-  m_ShaderKeywords: USE_RT USE_S USE_SC USE_SS _RTEFFECT_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - USE_CS
+  - USE_RT
+  - USE_SC
+  - USE_SS
+  m_InvalidKeywords:
+  - USE_S
+  - _RTEFFECT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -75,6 +85,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
@@ -103,6 +114,7 @@ Material:
     - _Metallic: 0
     - _MinimumNumberStacks: 1
     - _Mode: 0
+    - _NearCameraSmoosh: 1
     - _NoisePower: 1
     - _NumberOfStacks: 17
     - _OcclusionStrength: 1
@@ -137,6 +149,7 @@ Material:
     - _TransparentZWrite: 0
     - _UVSec: 0
     - _UseAmbientLight: 0
+    - _UseCS: 1
     - _UsePR: 0
     - _UseRT: 1
     - _UseShadow: 1
@@ -165,3 +178,4 @@ Material:
     - _ProjectedShadowColor: {r: 0.21171933, g: 0.24705882, b: 0.20678824, a: 1}
     - _RimColor: {r: 0.38354367, g: 0.41960785, b: 0.33023137, a: 1}
     - _SelfShadowColor: {r: 0.404, g: 0.404, b: 0.3494724, a: 1}
+  m_BuildTextureStacks: []
